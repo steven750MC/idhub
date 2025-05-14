@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>پرش از ارتفاع!</title>
+  <style>
+    body {
+      font-family: Tahoma;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(#87CEEB, #ffffff);
+      height: 100vh;
+      overflow: hidden;
+    }#character {
+  width: 100px;
+  height: 100px;
+  background: url('https://i.imgur.com/OYhptQw.png') no-repeat center/cover;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 1.2s ease-in;
+}
+
+#jumpBtn {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  font-size: 18px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #654321;
+}
+
+  </style>
+</head>
+<body>  <div id="character"></div>
+  <div id="ground"></div>
+  <button id="jumpBtn">بپر!</button>  <audio id="ahSound">
+    <source src="https://www.soundjay.com/human/sounds/scream-01.mp3" type="audio/mpeg">
+    مرورگر شما از پخش صوت پشتیبانی نمی‌کند.
+  </audio>  <script>
+    const character = document.getElementById("character");
+    const jumpBtn = document.getElementById("jumpBtn");
+    const ahSound = document.getElementById("ahSound");
+
+    jumpBtn.addEventListener("click", () => {
+      character.style.top = "calc(100% - 200px)";
+      setTimeout(() => {
+        ahSound.play();
+        character.classList.add("shake");
+      }, 1200);
+    });
+  </script></body>
+</html>
