@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="آیدی هاب | پروفایل شبکه‌های اجتماعی">
+  <title>پروفایل کاربر | ID Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: linear-gradient(135deg, #1e1e2f, #2c3e50);
+      --profile-border: #ffffff;
+      --btn-color-1: #00c2ff;
+      --btn-color-2: #ff00c8;
+      --btn-color-3: #00ffb3;
+      --font-main: 'Vazirmatn', sans-serif;
+      --border-radius: 1rem;
+    }* {
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background: var(--main-bg);
+  color: white;
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
+  height: 200px;
+  background-image: url('banner.jpg');
+  background-size: cover;
+  background-position: center;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.profile {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--profile-border);
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: url('profile.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.info {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.info h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.info p {
+  font-size: 1rem;
+  color: #ccc;
+  margin: 0.2rem 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.btn {
+  background: #333;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+.btn.color1 { background: var(--btn-color-1); }
+.btn.color2 { background: var(--btn-color-2); }
+.btn.color3 { background: var(--btn-color-3); }
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+  </style>
+</head>
+<body>
+  <header></header>
+  <div class="profile"></div>
+  <section class="info fade-in">
+    <h1>استیون ۷۵۰</h1>
+    <p>سازنده یونیک‌ترین سایت‌ها برای ارتباط همیشگی</p>
+  </section>
+  <section class="buttons fade-in">
+    <a class="btn color1" href="https://splus.ir/steven750">سروش پلاس</a>
+    <a class="btn color2" href="https://t.me/steven750">تلگرام</a>
+    <a class="btn color3" href="https://github.com/steven750MC">گیت‌هاب</a>
+  </section>
+  <footer>
+    ساخته شده توسط <a href="https://steven750mc.github.io/idhub">آیدی هاب</a>
+  </footer>  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script></body>
+</html>
