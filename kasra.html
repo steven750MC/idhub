@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ID Hub | steven</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Vazirmatn', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+      text-align: center;
+    }
+
+    .banner {
+      width: 100%;
+      height: 200px;
+      background: url('banner.jpg') center/cover no-repeat;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: url('profile.jpg') center/cover no-repeat;
+    }
+
+    .name {
+      margin-top: 80px;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .bio {
+      margin: 8px auto 24px;
+      font-size: 1rem;
+      color: #444;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      padding: 12px 28px;
+      border: none;
+      font-size: 1rem;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      width: 80%;
+      max-width: 300px;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: #888;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner"></div>
+  <div class="profile-pic"></div>
+
+  <h1 class="name">استیون750</h1>
+  <p class="bio">توسعه‌دهنده | علاقه‌مند به ماینکرفت و تکنولوژی</p>
+
+  <div class="buttons">
+    <button class="btn">تلگرام</button>
+    <button class="btn">سروش</button>
+    <button class="btn">وب‌سایت</button>
+    <button class="btn">ایمیل</button>
+  </div>
+
+  <div class="footer">
+    ساخته شده توسط <a href="https://steven750MC.github.io/idhub/">آیدی هاب</a>
+  </div>
+
+</body>
+</html>
