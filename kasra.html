@@ -1,120 +1,301 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ID Hub | steven</title>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Vazirmatn', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: #f5f5f5;
-      color: #222;
-      text-align: center;
-    }
-
-    .banner {
-      width: 100%;
-      height: 200px;
-      background: url('banner.jpg') center/cover no-repeat;
-      position: relative;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 5px solid white;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      position: absolute;
-      bottom: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: url('profile.jpg') center/cover no-repeat;
-    }
-
-    .name {
-      margin-top: 80px;
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-
-    .bio {
-      margin: 8px auto 24px;
-      font-size: 1rem;
-      color: #444;
-      width: 80%;
-      max-width: 400px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 40px;
-    }
-
-    .btn {
-      padding: 12px 28px;
-      border: none;
-      font-size: 1rem;
-      border-radius: 12px;
-      cursor: pointer;
-      background-color: #4CAF50;
-      color: white;
-      width: 80%;
-      max-width: 300px;
-      transition: 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .btn:hover {
-      background-color: #45a049;
-      transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-    }
-
-    .footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-    }
-
-    .footer a {
-      color: #888;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Flappy Bird - Mobile Friendly Anime Edition</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  #game {
+    display: block;
+    background: #111;
+    margin: 0 auto;
+    touch-action: manipulation;
+  }
+  #menu {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    padding: 12px 16px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    z-index: 10;
+    user-select: none;
+  }
+  #scores {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  #skins {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    gap: 12px;
+    max-height: 140px;
+    overflow-y: auto;
+    padding: 6px 0;
+  }
+  .skin {
+    border: 2px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.3;
+    text-align: center;
+    padding: 6px 4px 8px;
+    background: #222;
+    font-size: 11px;
+    color: white;
+    user-select: none;
+    transition: all 0.2s ease;
+  }
+  .skin img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 4px;
+  }
+  .skin.unlocked { opacity: 1; }
+  .skin.selected {
+    border-color: yellow;
+    box-shadow: 0 0 10px yellow;
+  }
+  .button {
+    color: white;
+    background-color: #000;
+    padding: 10px 16px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    width: 100%;
+  }
+  .button:active {
+    background-color: #333;
+  }
+  /* Scrollbar for skins */
+  #skins::-webkit-scrollbar {
+    height: 6px;
+  }
+  #skins::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 3px;
+  }
+</style>
 </head>
 <body>
 
-  <div class="banner"></div>
-  <div class="profile-pic"></div>
+<canvas id="game"></canvas>
 
-  <h1 class="name">استیون750</h1>
-  <p class="bio">توسعه‌دهنده | علاقه‌مند به ماینکرفت و تکنولوژی</p>
-
-  <div class="buttons">
-    <button class="btn">تلگرام</button>
-    <button class="btn">سروش</button>
-    <button class="btn">وب‌سایت</button>
-    <button class="btn">ایمیل</button>
+<div id="menu">
+  <div id="scores">
+    High Score: <span id="highscore">0</span> | Score: <span id="score">0</span>
   </div>
+  <button class="button" id="toggle-theme">Toggle Theme</button>
+  <div id="skins"></div>
+</div>
 
-  <div class="footer">
-    ساخته شده توسط <a href="https://steven750MC.github.io/idhub/">آیدی هاب</a>
-  </div>
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+let width, height;
+function resize() {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+}
+resize();
+window.addEventListener("resize", resize);
+
+let bird = { x: 50, y: 150, w: 48, h: 48, vy: 0 };
+let pipes = [];
+let score = 0;
+let highscore = parseInt(localStorage.getItem("highscore") || "0");
+let gravity = 0.5;
+let jump = -10;
+let selectedSkin = parseInt(localStorage.getItem("skin") || "0");
+let currentTheme = "day";
+
+const unlockScores = Array.from({ length: 30 }, (_, i) => i * 5);
+
+const characters = [
+  { name: "Goku", img: "https://i.ibb.co/VgKQk2c/goku.png" },
+  { name: "Naruto", img: "https://i.ibb.co/kD0ZWZf/naruto.png" },
+  { name: "Luffy", img: "https://i.ibb.co/tq6WDcB/luffy.png" },
+  { name: "Saitama", img: "https://i.ibb.co/qDw8Vkq/saitama.png" },
+  { name: "Eren", img: "https://i.ibb.co/p0BFsqq/eren.png" },
+  { name: "Deku", img: "https://i.ibb.co/2NjKYTK/ichigo.png" },
+  { name: "Ichigo", img: "https://i.ibb.co/2NjKYTK/ichigo.png" },
+  { name: "Gojo", img: "https://i.ibb.co/Y32JD3s/gojo.png" },
+  { name: "Tanjiro", img: "https://i.ibb.co/7W9F3r8/tanjiro.png" },
+  { name: "Hinata", img: "https://i.ibb.co/3pt8F7y/hinata.png" },
+  { name: "Asuna", img: "https://i.ibb.co/FVm83x1/asuna.png" },
+  { name: "Zero Two", img: "https://i.ibb.co/qWfMJqP/zero2.png" },
+  { name: "Nezuko", img: "https://i.ibb.co/WPv4RZp/nezuko.png" },
+  { name: "Yor", img: "https://i.ibb.co/XJx2jMv/yor.png" },
+  { name: "Rias", img: "https://i.ibb.co/8ssDBZT/rias.png" },
+  { name: "Tsunade", img: "https://i.ibb.co/p4bn4cg/tsunade.png" },
+  { name: "Pikachu", img: "https://i.ibb.co/fkqmkqX/pikachu.png" },
+  { name: "Mario", img: "https://i.ibb.co/fFQYwh3/mario.png" },
+  { name: "Sonic", img: "https://i.ibb.co/K9vRsQz/sonic.png" },
+  { name: "Link", img: "https://i.ibb.co/LYqpx4F/link.png" },
+  { name: "Steve", img: "https://i.ibb.co/hfmj8yV/steve.png" },
+  { name: "Master Chief", img: "https://i.ibb.co/K7yXKRy/masterchief.png" },
+  { name: "2B", img: "https://i.ibb.co/0rMp2X5/2b.png" },
+  { name: "Tifa", img: "https://i.ibb.co/fGMpKXf/tifa.png" },
+  { name: "Among Us", img: "https://i.ibb.co/NyXKTCX/amongus.png" },
+  { name: "Kratos", img: "https://i.ibb.co/KsKM6rC/kratos.png" },
+  { name: "Lara Croft", img: "https://i.ibb.co/Wtzf3Gj/lara.png" },
+  { name: "Batman", img: "https://i.ibb.co/XzPyRPJ/batman.png" },
+  { name: "Harley Quinn", img: "https://i.ibb.co/Hn3KrWh/harley.png" },
+  { name: "Stickman", img: "https://i.ibb.co/dG5MkjZ/stickman.png" }
+];
+
+const skinImgs = characters.map(c => {
+  const img = new Image();
+  img.src = c.img;
+  return img;
+});
+
+function resetGame() {
+  bird.y = height / 2;
+  bird.vy = 0;
+  pipes = [];
+  score = 0;
+}
+
+function jumpBird() {
+  bird.vy = jump;
+}
+
+canvas.addEventListener("touchstart", e => {
+  e.preventDefault();
+  jumpBird();
+});
+canvas.addEventListener("mousedown", jumpBird);
+window.addEventListener("keydown", e => {
+  if (e.code === "Space") jumpBird();
+});
+
+function update() {
+  bird.vy += gravity;
+  bird.y += bird.vy;
+
+  if (bird.y > height || bird.y < -bird.h) {
+    if (score > highscore) {
+      highscore = score;
+      localStorage.setItem("highscore", highscore);
+    }
+    localStorage.setItem("skin", selectedSkin);
+    resetGame();
+  }
+
+  if (pipes.length === 0 || pipes[pipes.length - 1].x < width - 200) {
+    let top = Math.random() * (height / 2) + 50;
+    pipes.push({ x: width, y: 0, h: top, passed: false });
+    pipes.push({ x: width, y: top + 140, h: height - top - 140, passed: false });
+  }
+
+  for (let i = 0; i < pipes.length; i++) {
+    pipes[i].x -= 3;
+    if (
+      bird.x < pipes[i].x + 70 &&
+      bird.x + bird.w > pipes[i].x &&
+      bird.y < pipes[i].y + pipes[i].h &&
+      bird.y + bird.h > pipes[i].y
+    ) {
+      if (score > highscore) {
+        highscore = score;
+        localStorage.setItem("highscore", highscore);
+      }
+      localStorage.setItem("skin", selectedSkin);
+      resetGame();
+    }
+
+    if (!pipes[i].passed && pipes[i].x + 70 < bird.x) {
+      pipes[i].passed = true;
+      score++;
+    }
+  }
+
+  pipes = pipes.filter(p => p.x > -80);
+
+  document.getElementById("score").innerText = score;
+  document.getElementById("highscore").innerText = highscore;
+
+  setupSkins();
+
+  requestAnimationFrame(draw);
+}
+
+function draw() {
+  ctx.clearRect(0, 0, width, height);
+
+  ctx.fillStyle = currentTheme === "day" ? "#87CEEB" : "#222";
+  ctx.fillRect(0, 0, width, height);
+
+  ctx.fillStyle = "green";
+  pipes.forEach(p => ctx.fillRect(p.x, p.y, 70, p.h));
+
+  ctx.drawImage(skinImgs[selectedSkin], bird.x, bird.y, bird.w, bird.h);
+}
+
+function setupSkins() {
+  const skinsContainer = document.getElementById("skins");
+  skinsContainer.innerHTML = "";
+
+  characters.forEach((c, i) => {
+    const unlocked = score >= unlockScores[i] || highscore >= unlockScores[i];
+    const skinDiv = document.createElement("div");
+    skinDiv.className = "skin";
+    if (unlocked) skinDiv.classList.add("unlocked");
+    if (i === selectedSkin) skinDiv.classList.add("selected");
+
+    const img = document.createElement("img");
+    img.src = c.img;
+
+    const label = document.createElement("div");
+    label.innerText = c.name;
+
+    skinDiv.appendChild(img);
+    skinDiv.appendChild(label);
+
+    if (unlocked) {
+      skinDiv.addEventListener("click", () => {
+        selectedSkin = i;
+        localStorage.setItem("skin", selectedSkin);
+        setupSkins();
+      });
+          }
+    skinsContainer.appendChild(skinDiv);
+  });
+}
+
+document.getElementById("toggle-theme").addEventListener("click", () => {
+  currentTheme = currentTheme === "day" ? "night" : "day";
+});
+
+resetGame();
+setupSkins();
+requestAnimationFrame(update);
+</script>
 
 </body>
 </html>
