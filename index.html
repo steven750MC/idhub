@@ -1,182 +1,90 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>m</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
-
+    <title>ماشین حساب ساده</title>
     <style>
         body {
-            background-color: #ffffff;
-            font-family: 'Vazirmatn', sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
+            justify-content: center;
+            height: 100vh;
             margin: 0;
-            padding: 30px 20px;
-            box-sizing: border-box;
         }
-
-        .main-title {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: #333333;
-            margin-bottom: 25px;
+        #calculator {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 50px;
+            padding: 10px;
+            margin: 5px;
+            font-size: 18px;
             text-align: center;
         }
-
-        .image-container-with-fade {
-            position: relative;
-            display: inline-block;
-            border-radius: 16px;
-            margin-bottom: 50px;
+        button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 18px;
+            cursor: pointer;
         }
-
-        .image-container-with-fade img {
-            display: block;
-            max-width: 350px;
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
         }
-
-        .image-container-with-fade::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 90px;
-            background: linear-gradient(
-                to top,
-                rgba(255, 255, 255, 1) 20%,
-                rgba(255, 255, 255, 0) 100%
-            );
-            border-bottom-left-radius: 16px;
-            border-bottom-right-radius: 16px;
-            pointer-events: none;
-        }
-
-        .card-section-container {
-            width: 100%;
-            max-width: 420px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .section-subtitle {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: #333333;
-            margin-top: 0;
-            margin-bottom: 20px;
-            text-align: center;
-            width: 100%;
-            max-width: 420px;
-        }
-        
-        .collection-card-light {
-            background-color: #ECEDF0;
-            color: #333740; 
-            border-radius: 16px;
-            padding: 18px 22px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .collection-card-content {
-            text-align: right;
-            flex-grow: 1;
-        }
-
-        .collection-card-title {
-            font-size: 1.15em;
-            font-weight: 700;
-            color: #1a1c20; 
-            margin-top: 0;
-            margin-bottom: 6px;
-        }
-
-        .collection-card-link {
-            font-size: 0.85em;
-            color: #5a6169; 
-            text-decoration: none;
-            display: inline-block;
-        }
-        .collection-card-link:hover {
-            color: #007bff;
-        }
-
-        .collection-card-logo-container {
-            margin-left: 18px; 
-        }
-
-        .collection-card-logo {
-            width: 45px; 
-            height: 45px;
-            object-fit: contain;
-            border-radius: 8px;
-        }
-        .footer-text {
-            font-size: 0.95em;
-            color: #555555;
-            text-align: center;
-            margin-top: 30px; 
-            line-height: 1.6;
-            max-width: 420px;
-        }
-
     </style>
 </head>
 <body>
 
-    <h1 class="main-title">ماینکرافت فارسی</h1>
-    <div class="image-container-with-fade">
-        <img src="https://i.ibb.co/RkrfRg2D/New-Project-21-A7-F7330.png" alt="i">
-    </div>
+<div id="calculator">
+    <h2>ماشین حساب ساده</h2>
+    <input type="number" id="num1" placeholder="عدد 1">
+    <input type="number" id="num2" placeholder="عدد 2">
+    <br>
+    <button onclick="calculate('+')">جمع</button>
+    <button onclick="calculate('-')">تفریق</button>
+    <button onclick="calculate('*')">ضرب</button>
+    <button onclick="calculate('/')">تقسیم</button>
+    <div id="result"></div>
+</div>
 
-    <h2 class="section-subtitle">مجموعه</h2>
+<script>
+    function calculate(operator) {
+        const num1 = parseFloat(document.getElementById('num1').value);
+        const num2 = parseFloat(document.getElementById('num2').value);
+        let result;
 
-    <div class="card-section-container">
-        <div class="collection-card-light">
-            <div class="collection-card-content">
-                <h3 class="collection-card-title">مستر ماین</h3>
-                <a href="#" class="collection-card-link">نمایش کانال ←</a>
-            </div>
-            <div class="collection-card-logo-container">
-                <img src="https://minecraft-fa.ir/logo1.png" alt="لوگوی مستر ماین" class="collection-card-logo">
-            </div>
-        </div>
-        <div class="collection-card-light">
-            <div class="collection-card-content">
-                <h3 class="collection-card-title">ماینکرافت ماینینگ</h3>
-                <a href="#" class="collection-card-link">نمایش کانال ←</a>
-            </div>
-            <div class="collection-card-logo-container">
-                <img src="https://minecraft-fa.ir/logo2.png" alt="لوگوی ماینکرافت ماینینگ" class="collection-card-logo">
-            </div>
-        </div>
-        <div class="collection-card-light">
-            <div class="collection-card-content">
-                <h3 class="collection-card-title">ماینکرافت نت</h3>
-                <a href="#" class="collection-card-link">نمایش کانال ←</a>
-            </div>
-            <div class="collection-card-logo-container">
-                <img src="https://minecraft-fa.ir/logo3.png" alt="لوگوی ماینکرافت نت" class="collection-card-logo">
-            </div>
-        </div>
-    </div>
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 === 0) {
+                    result = 'تقسیم بر صفر امکان‌پذیر نیست!';
+                } else {
+                    result = num1 / num2;
+                }
+                break;
+            default:
+                result = 'عملیات نامعتبر!';
+        }
 
-    <p class="footer-text">
-        متن
-    </p>
+        document.getElementById('result').innerText = 'نتیجه: ' + result;
+    }
+</script>
 
 </body>
 </html>
