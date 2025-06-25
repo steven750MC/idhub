@@ -1,0 +1,255 @@
+	body {
+      background: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .light-page {
+      max-width: 1000px;
+      width:1000px;
+    }
+    .dark-page {
+      max-width: 1000px;
+      width:1000px;
+      background-color: black;
+    }
+	.row {
+        display: flex;
+        flex-direction: row;
+    }
+    .column{
+        display: flex;
+        flex-direction: column;
+    }    
+    .light-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      background: #E9E9E9;
+      border-radius: 40px;
+      padding: 20px;
+      margin: 120px;
+      margin-top: 120px;
+      box-shadow: 0px -20px 50px #DFDFDF;
+      transition: all 2s ease;
+      max-height: 250px;
+    }
+	.light-card:hover{
+        box-shadow: 0px -20px 0px white;
+        background: white;
+        transform: scaleX(0) scale(0.5) skew(-50deg);
+    } 
+    .dark-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      background: #464646;
+      border-radius: 40px;
+      padding: 20px;
+      margin: 120px;
+      margin-top: 120px;
+      box-shadow: 0px -20px 50px #2F2F2F;
+      transition: all 2s ease;
+      max-height: 250px;
+    }
+	.dark-card:hover{
+        box-shadow: 0px -20px 0px white;
+        background: black;
+        transform: scaleX(0) scale(0.5) skew(-50deg);
+    } 
+    .blue-button{
+        background: blue;
+        border-radius: 40px;
+        box-shadow: 0px 5px 20px blue;
+        text-align: center;
+        margin: 50px;
+        margin-left:200px;
+        margin-right:200px;
+        padding: 40px;
+        transition: all 2s ease;
+    }
+    .blue-button:hover{
+        box-shadow: 0px -5px 40px #5DABFF;
+        background: #5DABFF;
+        transform: scale(1.2) translateY(-90px) perspective(400px) rotateX(375deg);
+    }
+    .red-button{
+        background: red;
+        border-radius: 40px;
+        box-shadow: 0px 5px 20px red;
+        text-align: center;
+        margin: 50px;
+        margin-left:200px;
+        margin-right:200px;
+        padding: 40px;
+        transition: all 2s ease;
+    }
+    .red-button:hover{
+        box-shadow: 0px -5px 40px #FF7272;
+        background: #FF7272;
+        transform: scale(1.2) translateY(-90px) perspective(400px) rotateX(375deg);
+    }    
+    .yellow-button{
+        background: #FFE500;
+        border-radius: 40px;
+        box-shadow: 0px 5px 20px yellow;
+        text-align: center;
+        margin: 50px;
+        margin-left:200px;
+        margin-right:200px;
+        padding: 40px;
+        transition: all 2s ease;
+    }
+    .yellow-button:hover{
+        box-shadow: 0px -5px 40px #FFD200;
+        background: #FFD200;
+        transform: scale(1.2) translateY(-90px) perspective(400px) rotateX(375deg);
+    }    
+    .green-button{
+        background: green;
+        border-radius: 40px;
+        box-shadow: 0px 5px 20px green;
+        text-align: center;
+        margin: 50px;
+        margin-left:200px;
+        margin-right:200px;
+        padding: 40px;
+        transition: all 2s ease;
+    }
+    .green-button:hover{
+        box-shadow: 0px -5px 40px #8EFF7A;
+        background: #8EFF7A;
+        transform: scale(1.2) translateY(-90px) perspective(400px) rotateX(375deg);
+    }
+    .pink-button{
+        background: pink;
+        border-radius: 40px;
+        box-shadow: 0px 5px 20px pink;
+        text-align: center;
+        margin: 50px;
+        margin-left:200px;
+        margin-right:200px;
+        padding: 40px;
+        transition: all 2s ease;
+    }
+    .pink-button:hover{
+        box-shadow: 0px -5px 40px red;
+        background: red;
+        transform: scale(1.2) translateY(-90px) perspective(400px) rotateX(375deg);
+    }
+    .orange-button{
+        background: orange;
+        border-radius: 40px;
+        box-shadow: 0px 5px 20px orange;
+        text-align: center;
+        margin: 50px;
+        margin-left:200px;
+        margin-right:200px;
+        padding: 40px;
+        transition: all 2s ease;
+    }
+    .orange-button:hover{
+        box-shadow: 0px -5px 40px yellow;
+        background: yellow;
+        transform: scale(1.2) translateY(-90px) perspective(400px) rotateX(375deg);
+    }
+    .purple-button{
+        background: purple;
+        border-radius: 40px;
+        box-shadow: 0px 5px 20px purple;
+        text-align: center;
+        margin: 50px;
+        margin-left:200px;
+        margin-right:200px;
+        padding: 40px;
+        transition: all 2s ease;
+    }
+    .purple-button:hover{
+        box-shadow: 0px -5px 40px pink;
+        background: pink;
+        transform: scale(1.2) translateY(-90px) perspective(400px) rotateX(375deg);
+    }
+    .gray-button{
+        background: #5F5F5F;
+        border-radius: 40px;
+        box-shadow: 0px 5px 20px #5F5F5F;
+        text-align: center;
+        margin: 50px;
+        margin-left:200px;
+        margin-right:200px;
+        padding: 40px;
+        transition: all 2s ease;
+    }
+    .gray-button:hover{
+        box-shadow: 0px -5px 40px gray;
+        background: gray;
+        transform: scale(1.2) translateY(-90px) perspective(400px) rotateX(375deg);
+    }
+    .buttontext{
+      color: white;
+      font-size: 4em;
+      font-weight: bold;
+      text-shadow: 0px 0px 10px white;
+    }
+    p {
+      color: #838383;
+      font-size: 3em;
+      text-shadow: 0px 0px 3px gray;
+    }
+    .light-text {
+      color: #EFEFEF;
+      font-size: 3em;
+      text-shadow: 0px 2px 3px white;
+    }
+    .dark-text {
+      color: #4E4E4E;
+      font-size: 3em;
+      text-shadow: 0px 0px 2px gray;
+    }
+    .dark-title{
+       font-size: 5em; 
+       font-weight: bold;
+       margin: 80px;
+       transition: all 2s ease;
+       text-shadow: 0px 1px 3px gray;
+    }
+    .dark-title:hover{
+        transform: perspective(900px) rotateY(360deg) rotateX(360deg) scale(1.5);
+    }
+    .light-title{
+        color: white;
+       font-size: 5em; 
+       font-weight: bold;
+       margin: 80px;
+       transition: all 2s ease;
+       text-shadow: 0px 1px 3px gray;
+    }
+    .light-title:hover{
+        transform: perspective(900px) rotateY(360deg) rotateX(360deg) scale(1.5);
+    }
+    .splus{
+        margin-right: 20px;
+        border-radius: 1000px;
+        box-shadow: 0px 0px 5px blue;
+    }
+    .img{
+        box-shadow: 0px 0px 10px gray;
+        border-radius: 1000px;
+        transition: all 2s ease;
+        margin-bottom: 50px;
+    }
+    .img:hover{
+        box-shadow: 0px 0px 30px white;
+        transform: perspective(400px) rotateX(360deg) rotateZ(360deg);
+    }
+    .credits {
+       color: gray;
+       font-size: 0em; 
+    }
+    
+    
+    
+    
+    
