@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وب‌ویو سروش پلاس</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        header {
+            background: linear-gradient(45deg, #4361ee, #3a0ca3);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .user-agent {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .section h2 {
+            color: #3a0ca3;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #4361ee, #7209b7);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(114, 9, 183, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(114, 9, 183, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .link-type {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .link-type h3 {
+            margin-bottom: 10px;
+            color: #4361ee;
+        }
+        
+        .code {
+            background: #2b2d42;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+        
+        .status {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .soroush-detected {
+            background: #4cc9f0;
+            color: #3a0ca3;
+        }
+        
+        .normal-browser {
+            background: #f72585;
+            color: white;
+        }
+        
+        .instructions {
+            background: #e6f7ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-right: 5px solid #4361ee;
+        }
+        
+        .instructions h3 {
+            color: #3a0ca3;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            margin-right: 20px;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>شبیه‌ساز وب‌ویو سروش پلاس</h1>
+            <div class="user-agent" id="userAgent">در حال شناسایی user agent...</div>
+        </header>
+        
+        <div class="content">
+            <div class="section">
+                <h2>وضعیت شناسایی</h2>
+                <div id="status" class="status">در حال بررسی...</div>
+            </div>
+            
+            <div class="section">
+                <h2>تست deep linkهای سروش</h2>
+                
+                <div class="link-type">
+                    <h3>باز کردن پروفایل</h3>
+                    <div class="code">soroush://lookup?key=PROFILE_ID</div>
+                    <button class="btn" onclick="openDeepLink('lookup', '12345')">باز کردن پروفایل</button>
+                </div>
+                
+                <div class="link-type">
+                    <h3>عضویت در کانال</h3>
+                    <div class="code">soroush://vitrinjoinchannel?channelId=CHANNEL_ID</div>
+                    <button class="btn" onclick="openDeepLink('vitrinjoinchannel', '67890')">عضویت در کانال</button>
+                </div>
+                
+                <div class="link-type">
+                    <h3>باز کردن صفحه لندینگ</h3>
+                    <div class="code">soroush://landing?key=LANDING_PAGE_ID</div>
+                    <button class="btn" onclick="openDeepLink('landing', 'landing123')">باز کردن صفحه لندینگ</button>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>دستورالعمل تست</h2>
+                <div class="instructions">
+                    <h3>برای تست وب‌ویو سروش پلاس:</h3>
+                    <ol>
+                        <li>user agent مرورگر خود را به 'SoroushWebView' تغییر دهید</li>
+                        <li>از دکمه‌های بالا برای تست deep linkها استفاده کنید</li>
+                        <li>در محیط واقعی سروش پلاس، این لینک‌ها اپلیکیشن را راه می‌اندازند</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // شناسایی user agent
+        const userAgentEl = document.getElementById('userAgent');
+        const statusEl = document.getElementById('status');
+        
+        // نمایش user agent فعلی
+        userAgentEl.textContent = navigator.userAgent;
+        
+        // بررسی آیا در محیط سروش هستیم یا نه
+        if (navigator.userAgent.includes('SoroushWebView')) {
+            statusEl.textContent = '✅ در حال اجرا در وب‌ویو سروش پلاس';
+            statusEl.className = 'status soroush-detected';
+        } else {
+            statusEl.textContent = '❌ در حال اجرا در مرورگر معمولی';
+            statusEl.className = 'status normal-browser';
+        }
+        
+        // تابع برای باز کردن deep linkهای سروش
+        function openDeepLink(type, id) {
+            let link = '';
+            
+            switch(type) {
+                case 'lookup':
+                    link = `soroush://lookup?key=${id}`;
+                    break;
+                case 'vitrinjoinchannel':
+                    link = `soroush://vitrinjoinchannel?channelId=${id}`;
+                    break;
+                case 'landing':
+                    link = `soroush://landing?key=${id}`;
+                    break;
+                default:
+                    console.error('نوع deep link نامعتبر است');
+                    return;
+            }
+            
+            // ایجاد iframe برای باز کردن deep link (روش متداول)
+            const iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            iframe.src = link;
+            document.body.appendChild(iframe);
+            
+            // حذف iframe بعد از مدت کوتاهی
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+            }, 100);
+            
+            alert(`در حال باز کردن: ${link}\n\nدر محیط واقعی سروش، این لینک اپلیکیشن را راه می‌اندازد.`);
+        }
+        
+        // شبیه‌سازی تغییر user agent (برای تست)
+        function simulateSoroushWebView() {
+            Object.defineProperty(navigator, 'userAgent', {
+                value: 'SoroushWebView/1.0 (Android 10; Mobile)',
+                configurable: true
+            });
+            
+            userAgentEl.textContent = navigator.userAgent;
+            statusEl.textContent = '✅ در حال اجرا در وب‌ویو سروش پلاس (شبیه‌سازی شده)';
+            statusEl.className = 'status soroush-detected';
+            
+            alert('user agent به SoroushWebView تغییر کرد!\nاکنون می‌توانید deep linkها را تست کنید.');
+        }
+        
+        // اضافه کردن دکمه شبیه‌سازی (برای تست)
+        const simulateBtn = document.createElement('button');
+        simulateBtn.textContent = 'شبیه‌سازی محیط سروش';
+        simulateBtn.className = 'btn';
+        simulateBtn.style.marginTop = '20px';
+        simulateBtn.onclick = simulateSoroushWebView;
+        document.querySelector('.section').appendChild(simulateBtn);
+    </script>
+</body>
+</html>
